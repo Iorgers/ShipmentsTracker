@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20G95" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Shipment" representedClassName="Shipment" syncable="YES" codeGenerationType="category">
+        <attribute name="archived" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="finished" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="String"/>
+        <attribute name="trackingCode" attributeType="String"/>
+        <relationship name="shipmentSteps" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ShipmentStep" inverseName="shipment" inverseEntity="ShipmentStep"/>
+    </entity>
+    <entity name="ShipmentStep" representedClassName="ShipmentStep" syncable="YES" codeGenerationType="category">
+        <attribute name="currentlyIn" attributeType="String"/>
+        <attribute name="sentTo" optional="YES" attributeType="String"/>
+        <attribute name="status" attributeType="String"/>
+        <attribute name="timeStamp" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="timeZone" optional="YES" attributeType="String"/>
+        <relationship name="shipment" toMany="YES" deletionRule="Nullify" destinationEntity="Shipment" inverseName="shipmentSteps" inverseEntity="Shipment"/>
+    </entity>
+    <elements>
+        <element name="ShipmentStep" positionX="-63" positionY="-18" width="128" height="119"/>
+        <element name="Shipment" positionX="-36" positionY="36" width="128" height="104"/>
+    </elements>
+</model>
